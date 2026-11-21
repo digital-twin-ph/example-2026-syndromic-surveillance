@@ -93,6 +93,12 @@ def main():
             visits.append({'visit_id': vid, 'date': date.isoformat(), 'facility': facility, 'age_group': age,
                            'sex': R.choice(['F', 'M']), 'chief_complaint': R.choice(COMPLAINTS[syndrome])})
             truth.append({'visit_id': vid, 'syndrome_generated': syndrome, 'seeded_outbreak': int(seeded)})
+    # AGE IN YEARS, drawn within each visit's age group by a random sequence of its own, so adding it changed no visit.
+    ages = random.Random(20261122)
+    bounds = {'0-4': (0, 4), '5-17': (5, 17), '18-44': (18, 44), '45-64': (45, 64), '65+': (65, 95)}
+    for v in visits:
+        lo, hi = bounds[v['age_group']]
+        v['age_years'] = ages.randint(lo, hi)
     with open(os.path.join(out, 'visits.csv'), 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(visits[0]))
         w.writeheader(); w.writerows(visits)
@@ -107,6 +113,7 @@ def main():
             ['date', 'Date of visit', '', 'The day the visit began, YYYY-MM-DD'],
             ['facility', 'Facility', '', 'One of three made-up emergency departments'],
             ['age_group', 'Age group', '', '0-4, 5-17, 18-44, 45-64 or 65+ years'],
+            ['age_years', 'Age', 'years', 'Age in completed years, within the age group'],
             ['sex', 'Sex', '', 'F or M, as recorded at triage'],
             ['chief_complaint', 'Chief complaint', '', 'Free text as triage wrote it: abbreviated, sometimes misspelled'],
         ])
