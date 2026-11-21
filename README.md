@@ -12,15 +12,27 @@ does that in three steps a trainee can see and change:
 2. **Count visits per day and syndrome** (Cases by period).
 3. **Flag unusual days** (Detect unusual counts): EARS C1, C2 and C3, CUSUM and EWMA.
 
+## In Fieldwork
+
+`fieldwork-project.json.gz` is the project, two workflows built from an empty canvas:
+
+1. **Which syndrome does each complaint say?** The visits, and Apply ruleset with the worked definitions.
+2. **Was there an unusual rise in any syndrome?** The same, counted by day and syndrome (Cases by period, each row one
+   visit), then Detect unusual counts: CUSUM, the first 28 days as the baseline, starting again after a signal.
+   Gastrointestinal visits signal on 7 days, from 14 April, the outbreak's second day, and on no other.
+
+To try the first attempt instead, open Apply ruleset's **Configure…**, choose **JSON**, and **Upload** the other file.
+
 ## Files
 
 | File | What it is |
 | --- | --- |
-| `data/visits.csv` | 24,328 visits, Monday 5 January to Sunday 28 June 2026: date, facility, age group, sex and the chief complaint as triage wrote it |
+| `data/visits.csv` | 24,328 visits, Monday 5 January to Sunday 28 June 2026: date, facility, age group, sex, the chief complaint as triage wrote it, and age in years |
 | `data/visits-columns.csv` | Its data dictionary |
 | `data/truth.csv` | For each visit, the syndrome it was generated as and whether it belongs to the seeded outbreak. **Not for the workflow**: it is what a trainee checks their syndrome definitions and their signals against |
 | `data/syndromes-first-attempt.ruleset.json` | Syndrome definitions as a first attempt might write them: a few words each. Upload it into Apply ruleset's JSON view |
 | `data/syndromes.ruleset.json` | The worked definitions: more words, and exclusions that keep a visit to one syndrome |
+| `fieldwork-project.json.gz` | The Fieldwork project: the two workflows above |
 | `scripts/make_visits.py` | The generator: standard-library Python, seed 20261121, the same files on every run |
 
 ## What is built in

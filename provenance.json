@@ -1,0 +1,34 @@
+{
+  "what": "Made-up emergency department visits for Fieldwork's syndromic surveillance worked example. No record describes a person.",
+  "made": {
+    "by": "scripts/make_visits.py",
+    "seed": 20261121,
+    "ageSeed": 20261122,
+    "python": "standard library only",
+    "made": "2026-11-21"
+  },
+  "builtIn": {
+    "visits": 24328,
+    "days": 175,
+    "from": "2026-01-05",
+    "to": "2026-06-28",
+    "seededOutbreak": {
+      "visits": 113,
+      "syndrome": "gastrointestinal",
+      "facility": "North General",
+      "ageGroup": "5-17",
+      "from": "2026-04-13",
+      "to": "2026-04-22"
+    }
+  },
+  "licence": "CC BY 4.0 (LICENSE-data)",
+  "doesNotEstablish": "Anything about any real place, facility or outbreak; how well a syndrome definition does on real chief complaints, which are more varied than these.",
+  "sha256": {
+    "data/visits.csv": "389b665aaa05283551fa835027ec2b73cf2842957d37733bad1801132e1a3b14",
+    "data/truth.csv": "fd5a8196e6c62e8b9dc279a69bfe2d507eb86b96c5988c3674605b0a256f54a4",
+    "data/visits-columns.csv": "da80b04e9be415c29193d0d3a537808da165997bbf40f54eb30ec25e49533448",
+    "data/syndromes.ruleset.json": "279b7a00f970fae47053385aa2d5be48550043498da02ff9f6b037b3556eba83",
+    "data/syndromes-first-attempt.ruleset.json": "68128b4f94c30f8997c689e63e6918f1c0b6ac66eb89ecf7adad5704d42183a9",
+    "scripts/make_visits.py": "6aa0be90a347dd404aa2c77150d454f9aa3eb97c1942daf74af4a11959334c76"
+  }
+}
