@@ -1,0 +1,7 @@
+variable,label,unit,description
+visit_id,Visit,,"A made-up identifier, one per visit"
+date,Date of visit,,"The day the visit began, YYYY-MM-DD"
+facility,Facility,,One of three made-up emergency departments
+age_group,Age group,,"0-4, 5-17, 18-44, 45-64 or 65+ years"
+sex,Sex,,"F or M, as recorded at triage"
+chief_complaint,Chief complaint,,"Free text as triage wrote it: abbreviated, sometimes misspelled"

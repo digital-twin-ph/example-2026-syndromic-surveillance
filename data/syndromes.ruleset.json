@@ -1,0 +1,136 @@
+{
+  "schema": "fieldwork/authored-ruleset/1",
+  "title": "Syndromes from chief complaints",
+  "mustNotBeReadAs": "a diagnosis: a syndrome is what a complaint says, before anyone has examined the patient",
+  "fields": [
+    {
+      "attribute": "chief_complaint",
+      "predicate": "fwa:chief_complaint",
+      "kind": "term"
+    }
+  ],
+  "parameters": [],
+  "rules": [
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "gastrointestinal"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "fever, fevr, flu, ili, influenza, body aches"
+            },
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "notContains",
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+            },
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "notContains",
+              "value": "rash"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "influenza-like"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "sob, breath, wheez, asthma, copd, congestion, cough"
+            },
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "notContains",
+              "value": "fever, fevr, flu, ili, influenza, body aches"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "respiratory"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "rash, hives"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "rash"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "fall, laceration, mvc, injury, fx, bite, burn, lifting, cut, s/p"
+            },
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "notContains",
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "injury"
+        }
+      ]
+    }
+  ],
+  "otherwise": [
+    {
+      "predicate": "fwa:syndrome",
+      "value": "other"
+    }
+  ]
+}

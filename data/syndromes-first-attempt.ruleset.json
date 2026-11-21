@@ -1,0 +1,116 @@
+{
+  "schema": "fieldwork/authored-ruleset/1",
+  "title": "Syndromes from chief complaints, a first attempt",
+  "mustNotBeReadAs": "a diagnosis: a syndrome is what a complaint says, before anyone has examined the patient",
+  "fields": [
+    {
+      "attribute": "chief_complaint",
+      "predicate": "fwa:chief_complaint",
+      "kind": "term"
+    }
+  ],
+  "parameters": [],
+  "rules": [
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "vomit, diarrh"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "gastrointestinal"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "fever, flu"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "influenza-like"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "cough, breath"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "respiratory"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "rash"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "rash"
+        }
+      ]
+    },
+    {
+      "any": [
+        {
+          "all": [
+            {
+              "field": "fwa:chief_complaint",
+              "comparator": "contains",
+              "value": "injury, fall, laceration"
+            }
+          ]
+        }
+      ],
+      "then": [
+        {
+          "predicate": "fwa:syndrome",
+          "value": "injury"
+        }
+      ]
+    }
+  ],
+  "otherwise": [
+    {
+      "predicate": "fwa:syndrome",
+      "value": "other"
+    }
+  ]
+}
