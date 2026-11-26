@@ -1,3 +1,14 @@
 The data in data/, and the generator in scripts/, are made up and released under the Creative Commons Attribution 4.0
 International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
 Attribution: Fieldwork worked example, "Syndromic surveillance, 2026", digital-twin-ph.
+
+Three things in data/ keep their owners' terms and are not relicensed by the above (2026-11-26):
+- The syndrome definitions in data/nssp/*.syntax.txt, and the rules transcribed from them, are the National Syndromic
+  Surveillance Program (NSSP) Community of Practice's, from the NSSP Knowledge Repository, which states no licence for
+  them. They are credited. NSSP and CDC do not endorse Fieldwork or this example.
+- SNOMED CT identifiers are from SNOMED International's Global Patient Set, release 2026-01-01, under the Creative
+  Commons Attribution-NoDerivatives 4.0 International licence: https://creativecommons.org/licenses/by-nd/4.0/
+  SNOMED CT® is a registered trademark of SNOMED International. © International Health Terminology Standards
+  Development Organisation.
+- ICD-11 codes are from WHO's ICD-11 for Mortality and Morbidity Statistics, release 2026-01, under the Creative
+  Commons Attribution-NoDerivs 3.0 IGO licence. The ICD-11 translation in data/nssp/icd11-translation.csv is Fieldwork's.

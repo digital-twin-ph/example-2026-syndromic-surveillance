@@ -1,0 +1,4 @@
+ILI CCDD v1: "sore ^th[o|r][a|o][a|r]t" holds a caret inside it, a wildcard: read as every piece present, without checking their order, which ESSENCE would.
+ILI CCDD v1: "soreth[o|r][a|o][a|r]t" holds | inside brackets, read as "or": 8 spellings.
+CDC Broad Acute Respiratory DD v1: a group holding only codes left out (ICD-9-CM) is dropped, and the alternative it was part of.
+CDC Measles CCDD v1: "or^[;/ ]74918002^" has no comma after the operator; read as or followed by the term.

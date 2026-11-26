@@ -1,0 +1,6 @@
+ChiefComplaints:
+^,andnot,^influenza^
+CC and DD:
+^norov^,or,^noro v^,or,^[;/ ]A08.1^,or,^[;/ ]A081^,or,(,^stomach^,and,(,^bug^,or,^virus^,or,^ flu ^,),)
+Discharge Diagnosis:
+^,andnot,^[;/ ]J10^,andnot,^[;/ ]J11^

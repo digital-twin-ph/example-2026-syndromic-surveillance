@@ -18,7 +18,7 @@
             {
               "field": "fwa:chief_complaint",
               "comparator": "contains",
-              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset, stomach bug, stomach virus, norov, noro v"
             }
           ]
         }
@@ -42,7 +42,7 @@
             {
               "field": "fwa:chief_complaint",
               "comparator": "notContains",
-              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset, stomach bug, stomach virus, norov, noro v"
             },
             {
               "field": "fwa:chief_complaint",
@@ -114,7 +114,7 @@
             {
               "field": "fwa:chief_complaint",
               "comparator": "notContains",
-              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset"
+              "value": "vomit, n/v, nausea, diarrh, gastro, stomach flu, throwing up, emesis, gi upset, stomach bug, stomach virus, norov, noro v"
             }
           ]
         }

@@ -17,6 +17,7 @@ was generated as and whether it belongs to the seeded outbreak: kept apart, as t
 python3 scripts/make_visits.py   (standard library only; seed 20261121, so the files are the same on every run)
 """
 import csv, datetime as dt, math, os, random
+import diagnoses
 
 R = random.Random(20261121)
 START, DAYS = dt.date(2026, 1, 5), 175
@@ -99,6 +100,8 @@ def main():
     for v in visits:
         lo, hi = bounds[v['age_group']]
         v['age_years'] = ages.randint(lo, hi)
+    # DISCHARGE DIAGNOSES AND THE SEEDED MEASLES CLUSTER (2026-11-26), each drawn by sequences of their own: scripts/diagnoses.py.
+    seeded_events = diagnoses.add(visits, truth, START, DAYS)
     with open(os.path.join(out, 'visits.csv'), 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(visits[0]))
         w.writeheader(); w.writerows(visits)
@@ -116,9 +119,10 @@ def main():
             ['age_years', 'Age', 'years', 'Age in completed years, within the age group'],
             ['sex', 'Sex', '', 'F or M, as recorded at triage'],
             ['chief_complaint', 'Chief complaint', '', 'Free text as triage wrote it: abbreviated, sometimes misspelled'],
-        ])
+        ] + diagnoses.COLUMNS)
     seeded = sum(t['seeded_outbreak'] for t in truth)
-    print(f'{len(visits)} visits over {DAYS} days, {seeded} of them the seeded outbreak')
+    print(f'{len(visits)} visits over {DAYS} days, {seeded} of them the seeded outbreak; '
+          f'{seeded_events["measles"]} seeded measles visits, {seeded_events["mmr"]} MMR vaccination visits')
 
 if __name__ == '__main__':
     main()

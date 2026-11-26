@@ -1,0 +1,56 @@
+definition,role,icd10cm,icd10cm_title,icd11,icd11_title,who_map_2026_01,note
+ILI CCDD v1,include,J09,Influenza due to certain identified influenza viruses,1E31,Influenza due to identified zoonotic or pandemic influenza virus,1E31,
+ILI CCDD v1,include,J10,Influenza due to other identified influenza virus,1E30,Influenza due to identified seasonal influenza virus,1E30,
+ILI CCDD v1,include,J11,Influenza due to unidentified influenza virus,1E32,"Influenza, virus not identified",1E32,
+ILI CCDD v1,exclude,A08.4,"Viral intestinal infection, unspecified",1A2Z,"Viral intestinal infections, unspecified",1A2Z,
+Norovirus v1,include,A08.1,Acute gastroenteropathy due to Norwalk agent and other small round viruses,1A23,Enteritis due to Norovirus,1A23,
+Norovirus v1,exclude,J10,Influenza due to other identified influenza virus,1E30,Influenza due to identified seasonal influenza virus,1E30,
+Norovirus v1,exclude,J11,Influenza due to unidentified influenza virus,1E32,"Influenza, virus not identified",1E32,
+CDC Measles CCDD v1,include,B05,Measles,1F03,Measles,1F03.0 to 1F03.Y,"the stem, so every measles code is caught, as B05 catches its children"
+CDC Broad Acute Respiratory DD v1,include,A22.1,Pulmonary anthrax,1B97,Anthrax,1B97,"wider than NSSP's: ICD-11 has no code for pulmonary anthrax alone"
+CDC Broad Acute Respiratory DD v1,include,A37,Whooping cough,1C12,Whooping cough,1C12.0 to 1C12.Z,
+CDC Broad Acute Respiratory DD v1,include,A48.1,Legionnaires' disease,1C19.1,Legionnaires disease,1C19.Z,"WHO's map gives the unspecified code; 1C19.1 is Legionnaires disease itself, leaving out Pontiac fever as NSSP does"
+CDC Broad Acute Respiratory DD v1,include,B25.0,Cytomegaloviral pneumonitis,CA40,(pneumonia),1D82.Y/CA40.1Z,"a cluster; its pneumonia part is caught by CA40 below"
+CDC Broad Acute Respiratory DD v1,include,B34.2,"Coronavirus infection, unspecified",1D92,"Coronavirus infection, unspecified site",1D92,
+CDC Broad Acute Respiratory DD v1,include,B34.9,"Viral infection, unspecified",1E1Z,Unspecified viral disease,1D90,"WHO's map gives 1D90, Adenovirus infection of unspecified site, a different condition; 1E1Z is the unspecified viral disease"
+CDC Broad Acute Respiratory DD v1,include,B44.0,Invasive pulmonary aspergillosis,1F20.0Y,Invasive aspergillosis of other specified site,1F20.0Y,
+CDC Broad Acute Respiratory DD v1,include,B44.81,Allergic bronchopulmonary aspergillosis,CA82.4,Aspergillus-induced allergic or hypersensitivity conditions,(not in WHO ICD-10),"ICD-10-CM only; allergic bronchopulmonary aspergillosis is an index term of CA82.4"
+CDC Broad Acute Respiratory DD v1,include,B44.9,"Aspergillosis, unspecified",1F20.Z,"Aspergillosis, unspecified",1F20.Z,
+CDC Broad Acute Respiratory DD v1,include,B97.2,Coronavirus as the cause of diseases classified elsewhere,XN83D,Coronavirus,XN83D,"an extension code, written after & in a cluster"
+CDC Broad Acute Respiratory DD v1,include,B97.4,Respiratory syncytial virus as the cause of diseases classified elsewhere,XN275,Human respiratory syncytial virus,XN275,"an extension code, written after & in a cluster"
+CDC Broad Acute Respiratory DD v1,include,J00,Acute nasopharyngitis,CA00,Acute nasopharyngitis,CA00,
+CDC Broad Acute Respiratory DD v1,include,J01,Acute sinusitis,CA01,Acute sinusitis,CA01,
+CDC Broad Acute Respiratory DD v1,include,J02,Acute pharyngitis,CA02,Acute pharyngitis,CA02.0 to CA02.Z,
+CDC Broad Acute Respiratory DD v1,include,J02.0,Streptococcal pharyngitis,1B51,Streptococcal pharyngitis,1B51,"moved to chapter 1 in ICD-11"
+CDC Broad Acute Respiratory DD v1,include,J03,Acute tonsillitis,CA03,Acute tonsillitis,CA03.0 to CA03.Z,
+CDC Broad Acute Respiratory DD v1,include,J04,Acute laryngitis and tracheitis,CA05,Acute laryngitis or tracheitis,CA05.0 to CA05.2,
+CDC Broad Acute Respiratory DD v1,include,J05,Acute obstructive laryngitis and epiglottitis,CA06,Acute obstructive laryngitis or epiglottitis,CA06.0 to CA06.Z,
+CDC Broad Acute Respiratory DD v1,include,J06,Acute upper respiratory infections of multiple and unspecified sites,CA04 CA07,Acute laryngopharyngitis; acute upper respiratory infections of multiple and unspecified sites,CA04 CA07.0 CA07.1,
+CDC Broad Acute Respiratory DD v1,include,J09,Influenza due to certain identified influenza viruses,1E31,Influenza due to identified zoonotic or pandemic influenza virus,1E31,
+CDC Broad Acute Respiratory DD v1,include,J10,Influenza due to other identified influenza virus,1E30,Influenza due to identified seasonal influenza virus,1E30,
+CDC Broad Acute Respiratory DD v1,include,J11,Influenza due to unidentified influenza virus,1E32,"Influenza, virus not identified",1E32,
+CDC Broad Acute Respiratory DD v1,include,J12 to J18,Pneumonia (every cause and organism unspecified),CA40,Pneumonia,CA40.0 to CA40.Z,
+CDC Broad Acute Respiratory DD v1,include,J20,Acute bronchitis,CA42,Acute bronchitis,CA42.0 to CA42.Z,
+CDC Broad Acute Respiratory DD v1,include,J21,Acute bronchiolitis,CA41,Acute bronchiolitis,CA41.0 to CA41.Z,
+CDC Broad Acute Respiratory DD v1,include,J22,Unspecified acute lower respiratory infection,CA4Z,"Lung infections, unspecified",CA4Z,
+CDC Broad Acute Respiratory DD v1,include,J39.8,Other specified diseases of upper respiratory tract,CA0Y,Other specified upper respiratory tract disorders,CA0Y,
+CDC Broad Acute Respiratory DD v1,include,J40,"Bronchitis, not specified as acute or chronic",CA20.Z,"Bronchitis, unspecified",CA20.Z,
+CDC Broad Acute Respiratory DD v1,include,J47.9,"Bronchiectasis, uncomplicated",CA24,Bronchiectasis,(not in WHO ICD-10),"ICD-10-CM only; ICD-11 does not divide bronchiectasis"
+CDC Broad Acute Respiratory DD v1,include,J80,Acute respiratory distress syndrome,CB00,Acute respiratory distress syndrome,CB00,
+CDC Broad Acute Respiratory DD v1,include,J85.1,Abscess of lung with pneumonia,CA43.1,Abscess of lung with pneumonia,CA43.1,
+CDC Broad Acute Respiratory DD v1,include,J95.821,Acute postprocedural respiratory failure,CB41.0,Acute respiratory failure,(not in WHO ICD-10),"ICD-10-CM only; ICD-11 states the procedure with a separate code, so the failure is CB41.0"
+CDC Broad Acute Respiratory DD v1,include,J96.0,Acute respiratory failure,CB41.0,Acute respiratory failure,CB41.0Z,
+CDC Broad Acute Respiratory DD v1,include,J96.2,Acute and chronic respiratory failure,CB41.0,Acute respiratory failure,(not in WHO ICD-10),"ICD-10-CM only; ICD-11 has no acute-on-chronic code, so its acute part"
+CDC Broad Acute Respiratory DD v1,include,J96.91,"Respiratory failure, unspecified, with hypoxia",CB41.20,"Respiratory failure, unspecified, Type I",(not in WHO ICD-10),"ICD-10-CM only; with hypoxia is Type I"
+CDC Broad Acute Respiratory DD v1,include,J98.8,Other specified respiratory disorders,CB40.Y,Other specified diseases of the respiratory system,CB40.Y,
+CDC Broad Acute Respiratory DD v1,include,R05,Cough,MD12,Cough,MD12,
+CDC Broad Acute Respiratory DD v1,include with fever,R06.00 R06.02,"Dyspnea, unspecified; shortness of breath",MD11.5,Dyspnoea,(not in WHO ICD-10),"ICD-10-CM only; included only with fever, as NSSP's pair"
+CDC Broad Acute Respiratory DD v1,include with dyspnea,R50.9,"Fever, unspecified",MG26,Fever of other or unknown origin,MG26,"included only with dyspnoea, as NSSP's pair"
+CDC Broad Acute Respiratory DD v1,not translated,R06.03,Acute respiratory distress,,,(not in WHO ICD-10),"ICD-11 has no code for it; dyspnoea would let dyspnoea in without fever, against NSSP's pair"
+CDC Broad Acute Respiratory DD v1,not translated,R09.02,Hypoxemia,,,(not in WHO ICD-10),"ICD-11 has no symptom code for hypoxaemia outside sleep disorders"
+CDC Broad Acute Respiratory DD v1,include,R09.2,Respiratory arrest,MD33,Respiratory arrest,MD33,
+CDC Broad Acute Respiratory DD v1,include,R43.0,Anosmia,MB41.0,Anosmia,MB41.0,
+CDC Broad Acute Respiratory DD v1,include,R43.1,Parosmia,MB41.1,Parosmia,MB41.1,
+CDC Broad Acute Respiratory DD v1,include,R43.2,Parageusia,MB41.2,Dysgeusia,MB41.2,"ICD-11's title is the wider dysgeusia"
+CDC Broad Acute Respiratory DD v1,include,U07.1,"COVID-19, virus identified",RA01.0,"COVID-19, virus identified",RA01.0,
+CDC Broad Acute Respiratory DD v1,include,U07.2,"COVID-19, virus not identified",RA01.1,"COVID-19, virus not identified",RA01.1,

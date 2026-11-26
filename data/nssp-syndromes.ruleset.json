@@ -1,0 +1,633 @@
+{
+ "schema": "fieldwork/authored-ruleset/1",
+ "title": "NSSP syndromes, as published (ICD-10 and SNOMED CT)",
+ "mustNotBeReadAs": "a diagnosis or a case: a syndrome definition sorts visits by what was written about them, before anyone has confirmed anything",
+ "description": "Transcribed from the National Syndromic Surveillance Program (NSSP) Community of Practice's definitions on the NSSP Knowledge Repository: ILI CCDD v1, CDC Broad Acute Respiratory DD v1, Norovirus v1 and CDC Measles CCDD v1. NSSP and CDC do not endorse Fieldwork or this example. Read with ICD-10 codes, as NSSP's ICD-10-CM codes are written; ICD-9-CM codes left out.",
+ "fields": [
+  {
+   "attribute": "chief_complaint",
+   "predicate": "fwa:chief_complaint",
+   "kind": "term"
+  },
+  {
+   "attribute": "discharge_diagnosis_icd10",
+   "predicate": "fwa:discharge_diagnosis_icd10",
+   "kind": "term"
+  },
+  {
+   "attribute": "discharge_diagnosis_snomed",
+   "predicate": "fwa:discharge_diagnosis_snomed",
+   "kind": "term"
+  }
+ ],
+ "parameters": [],
+ "rules": [
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "chill, pyrexia, \" febrile\", high temp, feeling hot, feels hot"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "fever"
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "denies fev, shot, afeb, no fev, no temp"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "elevated temp"
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "denies any elevated temp, no elevated temp"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "fvr"
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "denies fvr, no fvr"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:ili_fever_terms",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "sorethoaat, sorethoart, sorethooat, sorethoort, sorethraat, sorethrart, sorethroat, sorethrort, strep, pharyn, upper resp"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "cough"
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "denies cough"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "\"sore \""
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "thoaat, thoart, thooat, thoort, thraat, thrart, throat, thrort"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:ili_respiratory_or_sore_throat_terms",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "flu like, flulike, flu symptom"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_snomed",
+       "comparator": "startsWith",
+       "value": "442696006, 442438000, 6142004, 195878008"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "J09, J10, J11"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "influenza"
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "vaccin, shot, immunizat"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "\" flu \""
+      },
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "shot, stomach, vaccin, immuniza"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:ili_influenza_codes_and_terms",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:ili_fever_terms",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:ili_respiratory_or_sore_throat_terms",
+       "comparator": "equals",
+       "value": "yes"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:ili_influenza_codes_and_terms",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "notStartsWith",
+       "value": "A08.4, A084"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:ili_influenza_codes_and_terms",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:discharge_diagnosis_icd10Known",
+       "comparator": "equals",
+       "value": false
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:ili",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "R06.00, R06.02, R0600, R0602"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:broad_respiratory_dyspnea_codes",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "R50.9, R509"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:broad_respiratory_fever_code",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "A22.1, A221, A37, A48.1, A481, B25.0, B250, B34.2, B34.9, B342, B349, B44.0, B44.9, B440, B449, B44.81, B4481, B97.2, B97.4, B972, B974, J00, J01, J02, J03, J04, J05, J06, J09, J10, J11, J12, J13, J14, J15, J16, J17, J18, J20, J21, J22, J39.8, J398, J40, J47.9, J479, J80, J85.1, J851, J95.821, J95821, J96.0, J96.2, J960, J962, J96.91, J9691, J98.8, J988, R05, R06.03, R0603, R09.02, R0902, R09.2, R092, R43.0, R43.1, R43.2, R430, R431, R432, U07.1, U07.2, U071, U072"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:broad_respiratory_dyspnea_codes",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:broad_respiratory_fever_code",
+       "comparator": "equals",
+       "value": "yes"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:broad_respiratory",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "notContains",
+       "value": "influenza"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus_chief_complaint",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "bug, virus, \" flu \""
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus_bug_virus_or_flu",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "stomach"
+      },
+      {
+       "field": "fwa:norovirus_bug_virus_or_flu",
+       "comparator": "equals",
+       "value": "yes"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus_stomach_with_bug_virus_or_flu",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "A08.1, A081"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "norov, noro v"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:norovirus_stomach_with_bug_virus_or_flu",
+       "comparator": "equals",
+       "value": "yes"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus_cc_and_dd",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "notStartsWith",
+       "value": "J10, J11"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10Known",
+       "comparator": "equals",
+       "value": false
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus_discharge_diagnosis",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:norovirus_chief_complaint",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:norovirus_cc_and_dd",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:norovirus_discharge_diagnosis",
+       "comparator": "equals",
+       "value": "yes"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:norovirus",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_snomed",
+       "comparator": "startsWith",
+       "value": "14189004, 417145006, 28463004, 195900001, 74918002, 38921001, 240484000, 240483006, 60013002, 111872008, 444435003, 186562009, 416154000, 426558008, 191727003, 111873003, 230146001, 186561002, 424306000, 13420004, 406592004, 427290009, 427263000, 426654002, 426424002, 427706006, 426091009, 425684000, 425970007, 732209005, 426188007, 426640005, 427073007, 732207007, 426535005, 426028006, 427182003, 732210000, 698204007, 425966004, 416435006, 444974003"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_icd10",
+       "comparator": "startsWith",
+       "value": "B05"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "measl, meez, mesles, rubeo, measel, measul"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:measles_inclusion",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:discharge_diagnosis_snomed",
+       "comparator": "startsWith",
+       "value": "47435007, 371085006, 150961000119105, 61153008, 150971000119104, 473166002, 703347005, 170433008, 170431005, 432636005, 571591000119106, 170432003, 433733003, 572511000119105, 440075005"
+      }
+     ]
+    },
+    {
+     "all": [
+      {
+       "field": "fwa:chief_complaint",
+       "comparator": "contains",
+       "value": "titer, measles mumps rubella, mmr, vacc, shot, immun, rubel, proph, room b05, german, homesless, rule out measles"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:measles_exclusion",
+     "value": "yes"
+    }
+   ]
+  },
+  {
+   "any": [
+    {
+     "all": [
+      {
+       "field": "fwa:measles_inclusion",
+       "comparator": "equals",
+       "value": "yes"
+      },
+      {
+       "field": "fwa:measles_exclusion",
+       "comparator": "notEquals",
+       "value": "yes"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "predicate": "fwa:measles",
+     "value": "yes"
+    }
+   ]
+  }
+ ],
+ "otherwise": [
+  {
+   "predicate": "fwa:ili",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:ili_fever_terms",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:ili_respiratory_or_sore_throat_terms",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:ili_influenza_codes_and_terms",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:broad_respiratory",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:broad_respiratory_dyspnea_codes",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:broad_respiratory_fever_code",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus_chief_complaint",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus_cc_and_dd",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus_stomach_with_bug_virus_or_flu",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus_bug_virus_or_flu",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus_discharge_diagnosis",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:norovirus",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:measles",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:measles_inclusion",
+   "value": "no"
+  },
+  {
+   "predicate": "fwa:measles_exclusion",
+   "value": "no"
+  }
+ ]
+}

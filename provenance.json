@@ -1,34 +1,97 @@
 {
-  "what": "Made-up emergency department visits for Fieldwork's syndromic surveillance worked example. No record describes a person.",
-  "made": {
-    "by": "scripts/make_visits.py",
-    "seed": 20261121,
-    "ageSeed": 20261122,
-    "python": "standard library only",
-    "made": "2026-11-21"
+ "what": "Made-up emergency department visits for Fieldwork's syndromic surveillance worked example, with discharge diagnoses, and four NSSP syndrome definitions transcribed for Apply ruleset. No record describes a person.",
+ "made": {
+  "by": "scripts/make_visits.py",
+  "seed": 20261121,
+  "ageSeed": 20261122,
+  "python": "standard library only",
+  "made": "2026-11-21",
+  "diagnosisSeeds": [
+   20261126,
+   20261127,
+   20261128
+  ],
+  "diagnosesBy": "scripts/diagnoses.py",
+  "definitionsBy": "scripts/nssp_rules.py",
+  "projectBy": "scripts/build_project.mjs",
+  "updated": "2026-11-26"
+ },
+ "builtIn": {
+  "visits": 24328,
+  "days": 175,
+  "from": "2026-01-05",
+  "to": "2026-06-28",
+  "seededOutbreak": {
+   "visits": 113,
+   "syndrome": "gastrointestinal",
+   "facility": "North General",
+   "ageGroup": "5-17",
+   "from": "2026-04-13",
+   "to": "2026-04-22"
   },
-  "builtIn": {
-    "visits": 24328,
-    "days": 175,
-    "from": "2026-01-05",
-    "to": "2026-06-28",
-    "seededOutbreak": {
-      "visits": 113,
-      "syndrome": "gastrointestinal",
-      "facility": "North General",
-      "ageGroup": "5-17",
-      "from": "2026-04-13",
-      "to": "2026-04-22"
-    }
+  "seededMeasles": {
+   "visits": 10,
+   "facility": "Riverside Community",
+   "ageGroups": [
+    "0-4",
+    "5-17"
+   ],
+   "from": "2026-05-04",
+   "to": "2026-05-24",
+   "alsoMmrVaccinationVisits": 6
   },
-  "licence": "CC BY 4.0 (LICENSE-data)",
-  "doesNotEstablish": "Anything about any real place, facility or outbreak; how well a syndrome definition does on real chief complaints, which are more varied than these.",
-  "sha256": {
-    "data/visits.csv": "389b665aaa05283551fa835027ec2b73cf2842957d37733bad1801132e1a3b14",
-    "data/truth.csv": "fd5a8196e6c62e8b9dc279a69bfe2d507eb86b96c5988c3674605b0a256f54a4",
-    "data/visits-columns.csv": "da80b04e9be415c29193d0d3a537808da165997bbf40f54eb30ec25e49533448",
-    "data/syndromes.ruleset.json": "279b7a00f970fae47053385aa2d5be48550043498da02ff9f6b037b3556eba83",
-    "data/syndromes-first-attempt.ruleset.json": "68128b4f94c30f8997c689e63e6918f1c0b6ac66eb89ecf7adad5704d42183a9",
-    "scripts/make_visits.py": "6aa0be90a347dd404aa2c77150d454f9aa3eb97c1942daf74af4a11959334c76"
+  "diagnoses": {
+   "systems": [
+    "WHO ICD-10",
+    "ICD-11 (2026-01)",
+    "SNOMED CT (GPS 2026-01-01)"
+   ],
+   "missing": "about one visit in eight",
+   "delayDays": "0 to 5"
   }
+ },
+ "licence": "CC BY 4.0 (LICENSE-data) for the made-up visits and scripts; NSSP definitions, SNOMED CT identifiers and ICD-11 codes keep their owners' terms (LICENSE-data)",
+ "doesNotEstablish": "Anything about any real place, facility or outbreak; how well a syndrome definition does on real chief complaints, which are more varied than these.",
+ "sha256": {
+  "data/visits.csv": "d29e5da14c6c933cebf479e7cae80b2bc230e61db655d82a9171e43cce0297b2",
+  "data/truth.csv": "88a01cf3403b8f30f8de4bc662468fff969f1b6eef69c8e613a8c5a9ff031a7b",
+  "data/visits-columns.csv": "84f28c41178f0cdb87ce6135acfa39195d787120e84e1ecd875dda0aba380ec0",
+  "data/syndromes.ruleset.json": "93ee93d8d140580e111c90c9da2e395a4895a25dd257a1e34d3d9f1e64b314b3",
+  "data/syndromes-first-attempt.ruleset.json": "68128b4f94c30f8997c689e63e6918f1c0b6ac66eb89ecf7adad5704d42183a9",
+  "data/nssp-syndromes.ruleset.json": "4cfac13db09587dedc7813170941852190bc468b4b91ab503c4d68ed51830aa2",
+  "data/nssp-syndromes-icd11.ruleset.json": "4707efd8023c4926a9c5c6d7dd3617306229a5d7eb3757ffdf7a637a65f75147",
+  "data/nssp/cdc-broad-acute-respiratory-dd-v1.syntax.txt": "add7adb6e0f157c0d981fd9fc41d0f8ac18f181f2751b1a1802a9ba1eeab6061",
+  "data/nssp/cdc-measles-ccdd-v1.syntax.txt": "2fd76192d3d7155f3646cafb1528929f3eccf159bfad18eb2b492292fa0aaa09",
+  "data/nssp/icd11-translation.csv": "6905680f47a89c9bb24bd25fec5d9da27d3854434ac98ea349292b4c86c484a4",
+  "data/nssp/ili-ccdd-v1.syntax.txt": "ca53455dfc6b8889c3b662f04f9febd8b401f0e65b53efaaa43631d6d5015418",
+  "data/nssp/norovirus-v1.syntax.txt": "1e23bd4726936ac6047943c71782bd3c48dd4d83b6712480f7bf45a4df7e6222",
+  "data/nssp/transcription-notes.txt": "d42ee5fe1970396c8cb020878babcece61bc4487fdc58e76cab274f2a725458b",
+  "scripts/make_visits.py": "1d67580deb2f04a53242aecac5debd7f8dcc1bf98877271ad1920d9d6709e486",
+  "scripts/diagnoses.py": "b2ce2a1e8a3a263411e5915064fea4a3500d04c98a7329b54371daa7078e5140",
+  "scripts/nssp_rules.py": "fa6e35661972232b9febcf858227f491f072ad5ef2e03249be5487fea8149212",
+  "scripts/build_project.mjs": "c4b975c5e9be167348903e665b734733bc6457fd54ddadb4d4f12982dee3487a"
+ },
+ "sources": [
+  {
+   "what": "Syndrome definitions ILI CCDD v1, CDC Broad Acute Respiratory DD v1, Norovirus v1, CDC Measles CCDD v1",
+   "from": "NSSP Knowledge Repository, knowledgerepository.syndromicsurveillance.org, each definition page",
+   "read": "2026-11-26",
+   "licence": "none stated; credited, not relicensed; NSSP and CDC do not endorse this example"
+  },
+  {
+   "what": "ESSENCE query syntax rules",
+   "from": "CDC, Free-text Coding in NSSP-ESSENCE, Parts 1, 2 and 4",
+   "read": "2026-11-26"
+  },
+  {
+   "what": "SNOMED CT concept identifiers",
+   "from": "SNOMED International's Global Patient Set, SnomedINTL_GPSRelease_PRODUCTION_20260101T120000Z",
+   "licence": "CC BY-ND 4.0"
+  },
+  {
+   "what": "ICD-11 codes, and WHO ICD-10 to ICD-11 mapping",
+   "from": "WHO ICD-11 MMS release 2026-01: SimpleTabulation-ICD-11-MMS-en and mapping.zip",
+   "licence": "CC BY-ND 3.0 IGO"
+  }
+ ]
 }
