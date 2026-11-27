@@ -1,6 +1,6 @@
 # Syndromic surveillance, 2026: a made-up district's emergency departments
 
-A worked example for [Fieldwork](https://github.com/digital-twin-ph/fieldwork). **Every visit here is made up**: no
+A worked example for [Fieldwork](https://github.com/fieldwork-app/fieldwork). **Every visit here is made up**: no
 record describes a person, and the district, its three facilities and the outbreak are invented.
 
 Syndromic surveillance watches what people come to emergency departments with, before anyone has a diagnosis, and asks
